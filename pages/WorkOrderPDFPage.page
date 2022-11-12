@@ -1,0 +1,85 @@
+<apex:page standardController="Work_Order__c"  renderAs="pdf">
+<apex:form >
+<apex:pageBlock >
+
+<apex:pageBlockSection >
+    
+<!-- <apex:stylesheet value="{!URLFOR($Resource.Styles,'pdf.css')}"/>    -->
+    
+<apex:image url="{!$Resource.ABOSLogo}" width="180" height="50"/><br/>
+    
+<Div> 
+<p>10220 Dolfield rd Ste 209c</p><br/>
+<p>Owings Mills, MD 21117</p><br/>
+<p>10220 Dolfield rd Ste 209c</p><br/>
+<p>10220 Dolfield rd Ste 209c</p><br/>
+</Div>
+
+<Div>
+<p>WORK ORDER</p><br/>
+<p>w.o.# <apex:InputText value="{!Work_Order__c.Name}"/></p><br/>
+<p>w.o.Date <apex:InputText value="{!Work_Order__c.Work_Order_Date__c}"/></p><br/>
+</Div>
+
+<Div>
+<p>Issued To:<apex:InputText value="{!Work_Order__c.Issued_To__c}"/></p><br/>
+<p>Vender ID:<apex:InputText value="{!Work_Order__c.Vendor_ID__c}"/></p><br/>
+<p>vender Quote:<apex:InputText value="{!Work_Order__c.Vendor_Quote__c}"/></p><br/>
+<p>ABIS Authorized By:<apex:InputText value="{!Work_Order__c.ABIS_Authorized_By__r.name}"/></p><br/>
+</Div>
+
+</apex:pageBlockSection>
+
+   <table style="width:100%">
+  <tr>
+    <th bgcolor="#3498DB">Work Description</th>
+    <th bgcolor="#3498DB">BIll TO</th> 
+    <th bgcolor="#3498DB">Ship TO(if different)</th>
+  </tr>
+  <tr>
+    <td>Enter Description of work</td>
+    <td><apex:InputText value="{!Work_Order__c.Vendor_ID__c}"/></td> 
+    <td><apex:InputText value="{!Work_Order__c.Ship_To__r.name}"/></td>
+  </tr>
+  <tr>
+    <td>  </td>
+    <td><apex:Inputfield value="{!Work_Order__c.Vendor_ID__c}"/></td> 
+    <td><apex:Inputfield value="{!Work_Order__c.Ship_To__c}"/></td>
+  </tr>
+</table>
+
+ <table style="width:100%">
+  <tr>
+    <th bgcolor="#3498DB">Additional Comments</th>
+   
+  </tr>
+  <tr>
+    <td>Free text here</td>
+    
+  </tr>
+  
+</table>
+ 
+  <table style="width:100%">
+  <tr>
+        <th bgcolor="#3498DB">QTY</th>
+        <th bgcolor="#3498DB">Description</th> 
+        <th bgcolor="#3498DB">Taxed</th>
+        <th bgcolor="#3498DB">UNIT Price</th> 
+        <th bgcolor="#3498DB">Line Total</th>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Part XyZ</td> 
+    <td>X</td>
+    <td>150</td> 
+    <td>2,250</td>
+  </tr>
+  
+</table>            
+    
+
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

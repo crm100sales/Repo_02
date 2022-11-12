@@ -1,0 +1,31 @@
+<apex:page Controller="workOrder110PDFEmail" showHeader="false">
+    
+ <!-- <apex:sectionHeader title="Work Order PDF" subtitle="Email Work Order PDF File" 
+    description="You can send an Outbound email with Work Order PDF attachment"/> -->
+
+  <apex:form >
+    <apex:pageMessages />
+    <apex:pageBlock title="Work Order PDF File">
+        
+        <p> <b> NOTE: </b> You may add up to (5) email address recipients.  Separate each email with a "," (comma separator). </p> <br/>
+     
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!sendPDFOutboundEmail}" value="Send Work Order PDF"/>
+      </apex:pageBlockButtons>
+       
+      <apex:pageBlockSection >          
+        
+          <apex:outputLabel value="Email to send to" for="email"/> <br/>
+            
+          	<apex:inputText value="{!email1}" id="email1"/> <br/>
+            <apex:inputText value="{!email2}" id="email2"/> <br/>
+            <apex:inputText value="{!email3}" id="email3"/> <br/>
+            <apex:inputText value="{!email4}" id="email4"/> <br/>
+            <apex:inputText value="{!email5}" id="email5"/> <br/>
+                       
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+    
+</apex:page>

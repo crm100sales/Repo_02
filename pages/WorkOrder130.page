@@ -1,0 +1,315 @@
+<apex:page Controller="workOrderExtension130" action="{!onloadmethod}" >    
+    
+    <head>   
+      <style>       
+        .topcorner{
+        position:relative;
+        top:-10px;
+        left: 1px;
+        } 
+        .MyBtn{text-decoration:none;padding:4px !important ;}
+        .topcorner2{
+        position:relative;
+        top: 0x;
+        left: 850px;
+        }         
+      </style>
+    </head>
+    
+        <apex:form styleClass="pgblock">
+                <apex:pageMessages ></apex:pageMessages> 
+            
+        <apex:pageBlock mode="inlineEdit"> 
+            <table style="width:100%">
+            <tr>                
+                <td style="padding: 0px 0px 5px 0px; " > 
+                    <apex:image url="{!$Resource.ABOSLogo}" width="190" height="50"/>
+                    <div>&nbsp;&nbsp;</div>    
+                    <div style="top:-10px;position:relative;">                     
+                        10220 S.Dolfield Rd <br/>
+                        Suite 209c <br/>
+                        Owings Mills, MD 21117 <br/>
+                        Phone / Fax 888-421-2247 <br/>
+                        www.abis.com
+                        &nbsp;
+                        &nbsp;
+                    </div>
+                </td>
+                
+                <td style="padding: 10px 0px 5px 500px;">    
+                <!--<apex:pageBlockSection >-->
+                <table>
+                <tr>
+                <td >
+                    <b>WORK&nbsp;ORDER </b>
+                 </td>   
+                 </tr> 
+                 <tr>
+                <td>  
+                    W.O.#:  
+                </td>
+                <td>
+                    <apex:Outputfield value="{!workOrderRec.Name}" /> <br/>
+                </td>    
+                </tr> 
+                    
+                <tr>                 
+                <td>    
+                 W.O.Date: 
+                </td> 
+                <td> 
+                 <apex:Outputfield value="{!workOrderRec.Work_Order_Date__c}"/>
+                 </td> 
+                 </tr> 
+                  <tr>
+                      <td>
+                      </td>
+                  </tr>    
+                    
+                 <tr>
+                 <td>    
+                 Issued To:   
+                   
+                </td> 
+                <td> 
+                 <apex:Outputfield value="{!workOrderRec.Issued_To__c}"/>
+                 </td> 
+                 </tr>
+                 <tr>
+                 <td>    
+                 Vendor ID :  
+                   
+                </td> 
+                <td> 
+                 <apex:Outputfield value="{!workOrderRec.Vendor_ID__c}"/>
+                 </td> 
+                 </tr>
+                 <tr>
+                 <td>    
+                 Vendor Quote:  
+                   
+                </td> 
+                <td> 
+                 <apex:Outputfield value="{!workOrderRec.Vendor_Quote__c}"/>
+                 </td>
+                 </tr>
+                 <tr>
+                 <td>    
+                 ABIS Authorized By:  
+                   
+                </td> 
+                <td> 
+                 <apex:Outputfield value="{!workOrderRec.ABIS_Authorized_By__c}"/>
+                 </td> 
+                 <!--  <td>   
+                    <p>Issued To:<apex:Outputfield value="{!workOrderRec.Issued_To__c}"/></p>
+                    </td> 
+                     <td>   
+                    <p>Vendor ID : <apex:Outputfield value="{!workOrderRec.Vendor_ID__c}"/></p>
+                    </td> 
+                     <td>   
+                    <p>Vendor Quote: <apex:Outputfield value="{!workOrderRec.Vendor_Quote__c}"/></p>
+                    </td> 
+                     <td>   
+                    <p>ABIS Authorized By: <apex:Outputfield value="{!workOrderRec.ABIS_Authorized_By__c}"/></p>
+                     </td>  --> 
+                 </tr>
+                    </table>
+              <!-- </apex:pageBlockSection> -->
+               </td>
+               </tr>
+               <tr>
+               <td>
+             
+             <Div>
+             </Div>
+             </td>
+        </tr>
+        </table>
+        <hr/>
+            
+        <table style="width:100%">         
+            <th style="width:34%" bgcolor="#3498DB">Work Description</th>
+            <th style="width:33%" bgcolor="#3498DB">BIll TO</th> 
+            <th style="width:33%" bgcolor="#3498DB">Ship TO(if different)</th>               
+          <tr>
+            <td> <apex:Outputfield value="{!workOrderRec.Work_Description__c}"/> </td>
+            <td><b>Company Name: &nbsp;</b><apex:Outputfield value="{!workOrderRec.Bill_To__c}"/> </td> 
+            <td><b>Project Name: &nbsp;</b><apex:Outputfield value="{!workOrderRec.Ship_To1__c}"/> </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <!-- <td>Company Name: &nbsp; <apex:OutputText value="{!wkord.Bill_To_Company_Name__c}"/></td>  -->
+            <td>  </td>   
+            <td><b>Project Location:</b> <apex:Outputfield value="{!workOrderRec.Ship_To_Project_Location__c}"/></td>
+          </tr>               
+          <tr>
+            <td>  </td>
+              <td><b>Street Address: &nbsp; </b> <br/> <apex:OutputText value="{!workOrderRec.Bill_To__r.BillingStreet}"/></td> 
+              <td><b> Street Address: &nbsp; </b> <br/> <apex:Outputfield value="{!workOrderRec.Ship_To_Street_Address__c}"/></td>
+          </tr>               
+          <tr>
+            <td>  </td>
+            <td><b>City, State, ZipCode: &nbsp; </b> <br/> <apex:OutputText value="{!workOrderRec.Bill_To__r.BillingCity}"/> , &nbsp;
+                               <apex:OutputText value="{!workOrderRec.Bill_To__r.BillingState}"/> , &nbsp;
+                               <apex:OutputText value="{!workOrderRec.Bill_To__r.BillingPostalCode}"/>
+            </td>
+              
+            <td><b>City, State, ZipCode: &nbsp; </b> <br/> <apex:Outputfield value="{!workOrderRec.Ship_To_City_State_ZipCode__c}"/></td>
+          </tr>               
+          <tr>
+            <td>  </td>
+            <td><b>Phone: &nbsp;</b><br/> <apex:OutputText value="{!workOrderRec.Bill_To__r.Phone}"/></td> 
+            <!-- <td>Phone:<apex:Inputfield value="{!wkord.Ship_To_Phone__c}"/></td> -->
+            <td></td>  
+          </tr>               
+        </table>
+        <hr/>
+            
+         <table style="width:100%">
+          <tr>
+            <th bgcolor="#3498DB">Additional Comments</th>
+           
+          </tr>
+          <tr>
+              <!-- <td >Free text goes here: <apex:Inputfield value="{!wkord.Additional_Comments__c}" style="width: 100%; height: 100px" label="Free text "/> </td> -->    
+              <td> <apex:Outputfield value="{!workOrderRec.Additional_Comments__c}" style="width: 100%; height: 100px" label="Free text "/> </td>         
+          </tr> 
+          
+        </table>
+        <hr/>    
+        
+            
+     <!-- <apex:datatable value="{!workOrderLineItemList}" var="workOrdline"  >      -->    
+     <!-- <table style="width:100%">
+               
+         
+            <th style="width:34%" bgcolor="#3498DB">Line Item</th>
+            <th style="width:33%" bgcolor="#3498DB">Quantity</th> 
+            <th style="width:33%" bgcolor="#3498DB">Description</th>
+            <th style="width:34%" bgcolor="#3498DB">Taxed</th>
+            <th style="width:33%" bgcolor="#3498DB">Unit Price</th> 
+            <th style="width:33%" bgcolor="#3498DB">Line Total</th>
+            <th style="width:33%" bgcolor="#3498DB">Tax</th>
+          <apex:repeat value="{!workOrderLineItemList}" var="workOrdline" >
+          <tr>
+          
+           </apex:repeat> 
+      </table> -->
+      
+          <table style="width:100%">
+          <tr>
+                <th bgcolor="#3498DB">Line Item</th>
+                <th bgcolor="#3498DB">QTY</th>
+                <th bgcolor="#3498DB">Description</th> 
+                <th bgcolor="#3498DB">Taxed</th>
+                <th bgcolor="#3498DB">UNIT Price</th> 
+                <th bgcolor="#3498DB">Line Total</th>
+          </tr>          
+              <apex:repeat value="{!workOrderLineItemList}"  var="vnd" id="theRepeat">
+                <tr>
+                   <td> <apex:outputfield value="{!vnd.Line_Item__c}" id="vndone"/></td>
+                   <td> <apex:outputfield value="{!vnd.Quantity__c}" id="vndtewo"/></td>
+                   <td><apex:outputfield value="{!vnd.Description__c}" id="vndthree"/></td>
+                   <td> <apex:outputfield value="{!vnd.Taxed__c}" id="vndfour"/></td>
+                   <td> <apex:outputfield value="{!vnd.Unit_Price__c}" id="vndfiv"/></td>
+                   <td> <apex:outputfield value="{!vnd.Line_Total__c}" id="vndsix"/></td>
+                </tr>                  
+              </apex:repeat>         
+        </table>
+        <hr/>    
+            
+        <table style="width:100%;">               
+           <tr>              
+              <td>
+                  <div style="float:right"> 
+                  <table>
+                    <tr>
+                    <td>SUBTOTAL:</td>
+                    <td><apex:Outputfield value="{!workOrderRec.Sub_Total__c}"/></td>
+                     </tr>
+                     
+                    
+                     
+                     <tr>
+                    <td> S and H :</td>
+                    <td><apex:Outputfield value="{!workOrderRec.Shipping_Handling__c}"/></td>
+                     </tr>
+                     
+                     <tr>
+                    <td> OTHER:</td>
+                    <td><apex:Outputfield value="{!workOrderRec.Other__c}"/></td>
+                     </tr>
+                     
+                     <tr>
+                    <td> <b>TOTAL:</b> </td>
+                    <td><apex:Outputfield value="{!workOrderRec.Total__c}"/></td>
+                     </tr>
+                      <!--<p>SUBTOTAL: &nbsp; <apex:Outputfield value="{!workOrderRec.Sub_Total__c}"/> <br/>
+                      TAX: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <br/>
+                      S and H : &nbsp; &nbsp; &nbsp; &nbsp; <apex:Outputfield value="{!workOrderRec.Shipping_Handling__c}"/> <br/>
+                      OTHER: &nbsp; &nbsp; &nbsp; &nbsp;  <apex:Outputfield value="{!workOrderRec.Other__c}"/>  <br/>                      
+                      <b>TOTAL: &nbsp; &nbsp; &nbsp; &nbsp;  <apex:Outputfield value="{!workOrderRec.Total__c}"/> </b> </p>-->
+                    </table>  
+                  </div>   
+              </td>            
+          </tr>       
+        </table>
+        <hr/>
+            
+        <table style="width:100%">               
+           <tr>
+              <td>
+                  <div>                  
+                      <h3 style ="background-color: #A9A9A9; width:500px; ">Other Comments or Special Instructions </h3>
+                      <p>1. Payments will be made in accordance  with your Master Services Agreement </p>
+                      <p>2. Please refer to W.O. # in all your correspondence</p>
+                      <p>3. Please send correspondence regarding this work order to: </p>
+                      <p>  </p>
+                      <p>  </p>
+                  </div>    
+              </td>                          
+          </tr>       
+        </table>
+             
+            
+        <br/> <br/> <br/> <br/> <br/> <br/>    
+                
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!CreateWorkorddetails}" />
+                <apex:commandButton value="Print PDF" action="{!printPdfWorkOrder}"  onComplete="openWindow()" />
+                
+                <apex:commandLink styleclass="MyBtn" action="{!printPdfWorkOrder}" target="_blank" >
+                   <apex:commandButton value="Print PDF123"/>
+                </apex:commandLink>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email to send to" for="email"/>
+                    <apex:inputText value="{!email}" id="email" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="WorkOrder" for="Work_Order__c"/>
+                    <apex:selectList value="{!workOrderId}" id="Work_Order__c" size="1">
+                        <apex:selectOptions value="{!workOrders}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+                
+                
+        <!--<apex:pageBlockSection title="Other Comments or Special Instructions" >-->
+<!--            <Div style ="width:500px;">
+                    <h1 style ="background-color: #A9A9A9;">Other Comments or Special Instructions </h1>
+                    <p>1. Payments will be made in accordance  with your Master Services Agreement </p>
+                    <p>2. Please refer to W.O. # in all your correspondence</p>
+                    <p>3. Please send correspondence regarding this work order to: </p>
+                </Div> -->
+           <!-- </apex:pageBlockSection> -->
+        
+        </apex:pageBlock>
+        
+    </apex:form>
+
+</apex:page>

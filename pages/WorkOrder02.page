@@ -1,0 +1,119 @@
+<!-- <apex:page standardController="Account" extensions="workOrderExtension"> -->
+<apex:page standardController="Account" extensions="workOrderExtension" renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">    
+  
+ <html>
+    <head>
+        <style>
+            @page {
+                size: letter;
+                margin: 25mm;
+                @top-center {
+                    content: "Sample";
+                }
+                @bottom-center {
+                    content: "Page " counter(page) " of " counter(pages);
+                }
+            }
+            .page-break {
+                display:block;
+                page-break-after:always;
+            }
+            body {
+                font-family: Arial Unicode MS;
+            }
+        </style>
+    </head>
+     
+    <body>
+    <div class="page-break">Page A</div>
+    <div class="page-break">Page B</div>
+    <div>Page C</div>
+    
+    <p>10220 Dolfield rd Ste 209c</p><br/>
+    <p>Owings Mills, MD 21117</p><br/>
+    <p>10220 Dolfield rd Ste 209c</p><br/>
+    <p>10220 Dolfield rd Ste 209c</p><br/>    
+        
+    </body>
+</html>    
+    
+    
+    
+<apex:form >
+<apex:pageBlock >
+
+<apex:pageBlockSection >
+<apex:pageBlockSectionItem > 
+<apex:image url="{!URLFOR($Resource.logo, 'logo.png')}"/><br/>
+<p>10220 Dolfield rd Ste 209c</p><br/>
+<p>Owings Mills, MD 21117</p><br/>
+<p>10220 Dolfield rd Ste 209c</p><br/>
+<p>10220 Dolfield rd Ste 209c</p><br/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem > 
+<p>WORK ORDER</p><br/>
+<p>w.o.#</p><br/>
+<p>w.o.Date</p><br/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem > 
+<p>Issued To</p><br/>
+<p>Vender ID:</p><br/>
+<p>vender Quote:</p><br/>
+<p>ABIS Authorized By:</p><br/>
+</apex:pageBlockSectionItem>
+
+</apex:pageBlockSection>
+
+   <table style="width:100%">
+  <tr>
+    <th bgcolor="#3498DB">Firstname</th>
+    <th bgcolor="#3498DB">Lastname</th> 
+    <th bgcolor="#3498DB">Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td> 
+    <td>94</td>
+  </tr>
+</table>
+
+ <table style="width:100%">
+  <tr>
+    <th bgcolor="#3498DB">Additional Comments</th>
+   
+  </tr>
+  <tr>
+    <td>Free text here</td>
+    
+  </tr>
+  
+</table>
+ 
+  <table style="width:100%">
+  <tr>
+        <th bgcolor="#3498DB">QTY</th>
+        <th bgcolor="#3498DB">Description</th> 
+        <th bgcolor="#3498DB">Taxed</th>
+        <th bgcolor="#3498DB">UNIT Price</th> 
+        <th bgcolor="#3498DB">Line Total</th>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Part XyZ</td> 
+    <td>X</td>
+    <td>150</td> 
+    <td>2,250</td>
+  </tr>
+  
+</table>
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

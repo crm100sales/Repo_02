@@ -1,0 +1,62 @@
+<apex:page standardController="User" extensions="ADVFPageControllerExtension">
+     <apex:define name="body">  
+        <center>
+            
+ <apex:form id="theForm" forceSSL="true">
+
+    <apex:pageBlock title="Search User">
+            <apex:pageBlockSection >
+                <apex:inputText label="Username1" value="{!username1}"/>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!searchUser}" value="Search"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+            
+     <!-- <apex:pageBlock title="Create User">
+            <apex:pageBlockSection >
+                <apex:inputText label="FirstName" value="{!username2}"/>
+                <apex:inputText label="LastName" value="{!username3}"/>
+                <apex:inputText label="Email" value="{!username4}"/>
+                <apex:inputText label="LOcal Language " value="{!username5}"/>
+                <apex:inputText label="Country" value="{!username6}"/>
+                <apex:inputText label="Username1" value="{!username7}"/>
+                <apex:inputText label="Username1" value="{!username8}"/>
+                <apex:inputText label="Username1" value="{!username9}"/>
+                <apex:inputText label="Username1" value="{!username0}"/>
+                <apex:inputText label="Username1" value="{!username12}"/>   
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="top" >
+                <apex:commandButton action="{!save1}" value="Save1" immediate="true" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock> -->
+                    <apex:pageMessages id="error"/>
+                    <h3>Note: all fields are required.</h3>
+                    <apex:panelGrid columns="2" style="margin-top:1em;">
+                    <apex:outputLabel value="First Name" for="firstName"/>
+                    <apex:inputText id="firstName" value="{!firstName}" label="First Name"/>
+                    <apex:outputLabel value="Last Name" for="lastName"/>
+                    <apex:inputText id="lastName" value="{!lastName}" label="Last Name"/>
+                    <apex:outputLabel value="Community Nickname" for="communityNickname"/>
+                    <apex:inputText id="communityNickname" value="{!communityNickname}" label="Community Nickname"/>
+
+                    <apex:outputLabel value="Company" for="company"/>
+                    <apex:inputText id="company" value="{!company}" label="Company"/>
+
+                    <apex:outputLabel value="Email" for="email"/>
+                    <apex:inputText id="email" value="{!email}" label="Email}"/>
+                    <apex:outputLabel value="Password" for="password"/>
+                    <apex:inputSecret id="password" value="{!password}"/>
+                    <apex:outputLabel value="Confirm Password" for="confirmPassword"/>
+                    <apex:inputSecret id="confirmPassword" value="{!confirmPassword}"/>
+                    <apex:outputText value=""/>
+
+                    <apex:commandButton action="{!save1}" value="Submit" id="submit" disabled="true" />
+                    </apex:panelGrid>
+                    <br/>
+     </apex:form>
+     </center>
+     <br/>
+     </apex:define>
+</apex:page>

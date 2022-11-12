@@ -1,0 +1,71 @@
+<!-- <apex:page Controller="workOrderExtension110" action="{!onloadmethod}" renderAs="pdf" standardStylesheets="false"
+           showHeader="false" applyHtmlTag="false" applyBodyTag="false"> -->
+<apex:page Controller="workOrder110" action="{!onloadmethod}" >    
+    
+    <apex:form >
+        <head>
+        <style>          
+            .topcornerContainer{              
+              background-color: #3498DB;
+             }
+              
+            .topcorner{
+            width: 100px;
+            float: left;
+            } 
+            
+            .topcorner2{
+            width: 100px;
+            float: right;
+            }
+            
+            .One{
+                margin:20px;
+                padding:10px;
+                width:150px;
+                height:100px;
+                background-color: #3498DB;
+                border-radius:20px;
+                border:2px solid red;
+                float: right;
+            }
+            
+            .recent{
+              margin:2px;
+              padding:3px;
+              width:150px;
+              height:20px;
+              background-color: green;
+              border-radius:20px;
+              border:2px solid red;
+              float: left;
+             }
+      </style> 
+        </head>
+            
+        	<div>                    
+                    <div class="topcorner">
+                        <apex:image url="{!$Resource.ABOSLogo}" width="190" height="50"/>
+                        <p>10220 S Dolfield Rd Ste 209c</p>
+                        <p>Owings Mills, MD 21117</p>
+                        <p>Phone / Fax 888-421-2247</p>
+                        <p>www.abis.com</p>
+                    </div>
+                
+                    <div class="topcorner2">
+                        <h1>WORK ORDER</h1>
+                        <p>W.O.#: &nbsp;<!--<apex:Inputfield value="{!wkord.Name}"/>--></p>
+                        <p>W.O.Date: &nbsp;<apex:Outputfield value="{!workOrderRec.Work_Order_Date__c}"/></p> <br/> 
+                       <!-- <p>W.O.Date: &nbsp;<apex:Inputtext value="{!Todaydate}"/></p><br/> -->
+                                         
+                        <p>Issued To:<apex:Outputfield value="{!workOrderRec.Issued_To__c}"/></p>
+                        <p>Vendor ID : <apex:Outputfield value="{!workOrderRec.Vendor_ID__c}"/></p>
+                        <p>Vendor Quote: <apex:Outputfield value="{!workOrderRec.Vendor_Quote__c}"/></p>
+                        <p>ABIS Authorized By: <apex:Outputfield value="{!workOrderRec.ABIS_Authorized_By__c}"/></p>
+                   </div>
+              </div>        
+        
+        
+    </apex:form>
+
+</apex:page>
